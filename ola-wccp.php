@@ -37,7 +37,11 @@ define('OLA_WCCP_PLUGIN_DIR', plugin_dir_path(__FILE__ ));
 /* ---------------------------------------------------------------------------------- 
 FUNCTIONS
    ---------------------------------------------------------------------------------- */
-if ( class_exists( 'WooCommerce' ) ) { 
+
+/**
+ * Check if WooCommerce is active
+ **/
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	
 	// GET ALL CATEGORIES
 	function wccp_set_categories_prices() {
